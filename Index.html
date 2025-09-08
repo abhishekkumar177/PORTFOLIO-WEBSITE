@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Kumar - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="liquid-background"></canvas>
+
+    <header class="header">
+        <a href="#" class="logo">Welcome to My Portfolio</a>
+        <nav class="navbar">
+            <a href="#hero" class="active">Hero</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="moon-icon"><i class='bx bx-moon'></i></div>
+    </header>
+
+    <main class="main">
+        <section class="hero-section" id="hero">
+            <div class="hero-content">
+                <h3 class="greeting">Hello, I'm</h3>
+                <h1 class="name">Abhishek Kumar</h1>
+                <p class="title">FullStack Java Developer & UI/UX Designer</p>
+                <p class="description">I create beautiful, functional, and user-centered digital experiences that solve real-world problems.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="circle large-circle">Abhishek Kumar</div>
+                <div class="circle small-circle-1">Hire me!</div>
+                <div class="circle small-circle-2">Hello!</div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Pre-final@ Haldia Institute of Technology | IT Undergrad | AICTE Intern @EDUNET | CA @LetsUpgrade| Java, Python & CNN Enthusiast | Prompt Engineering Specialist | Content Writer | Novel Author</p>
+                    <p>I’m a Pre-Final Year Student at Haldia Institute of Technology with hands-on experience in content writing, digital promotion, Java development, and Python. I’m also exploring deep learning, particularly Convolutional Neural Networks (CNNs). I enjoy applying both creative and technical skills to real-world problems, and I’m committed to continuous learning and contributing meaningfully to every project I work on.</p>
+                    <div class="about-tech-stack">
+                        <span>JavaScript</span>
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+                <div class="about-timeline">
+                    <h3>My Journey</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2020</h4>
+                                <p>Completed Matriculation in 2020 from Bally Little Buds Educational Garden.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2022</h4>
+                                <p>Completed Intermediate Education in 2022 from Salkia Vikram Main</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2023</h4>
+                                <p>Joined College as a B.Tech Student at Haldia Institute of Technology </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2025</h4>
+                                <p>Participated in various hackathons and Internship Programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-tabs">
+                <button class="tab-btn active" data-tab="frontend">Frontend</button>
+                <button class="tab-btn" data-tab="backend">Backend</button>
+                <button class="tab-btn" data-tab="ml">ML</button>
+                <button class="tab-btn" data-tab="cloud">Cloud</button>
+            </div>
+            <div class="skills-content-wrapper">
+                <div class="skills-content active" data-content="frontend">
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React">
+                        <h4>React</h4>
+                        <div class="proficiency-bar"><div style="width: 35%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="Vue.js">
+                        <h4>Vue.js</h4>
+                        <div class="proficiency-bar"><div style="width: 85%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5/CSS3">
+                        <h4>HTML5/CSS3</h4>
+                        <div class="proficiency-bar"><div style="width: 98%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS">
+                        <h4>Tailwind CSS</h4>
+                        <div class="proficiency-bar"><div style="width: 92%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+                        <h4>JavaScript</h4>
+                        <div class="proficiency-bar"><div style="width: 96%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                </div>
+                <div class="skills-content" data-content="backend">
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js">
+                        <h4>Node.js</h4>
+                        <div class="proficiency-bar"><div style="width: 88%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python">
+                        <h4>Python</h4>
+                        <div class="proficiency-bar"><div style="width: 90%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://cdn.worldvectorlogo.com/logos/express-109.svg" alt="Express">
+                        <h4>Express</h4>
+                        <div class="proficiency-bar"><div style="width: 85%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/45/MongoDB-Logo.svg/1280px-MongoDB-Logo.svg.png" alt="MongoDB">
+                        <h4>MongoDB</h4>
+                        <div class="proficiency-bar"><div style="width: 82%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL">
+                        <h4>PostgreSQL</h4>
+                        <div class="proficiency-bar"><div style="width: 78%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                </div>
+                <div class="skills-content" data-content="ml">
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/TensorFlow_logo.svg" alt="TensorFlow">
+                        <h4>TensorFlow</h4>
+                        <div class="proficiency-bar"><div style="width: 75%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="PyTorch">
+                        <h4>PyTorch</h4>
+                        <div class="proficiency-bar"><div style="width: 70%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_300x300.png" alt="Scikit-learn">
+                        <h4>Scikit-learn</h4>
+                        <div class="proficiency-bar"><div style="width: 80%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_logo_black.svg" alt="OpenCV">
+                        <h4>OpenCV</h4>
+                        <div class="proficiency-bar"><div style="width: 65%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                </div>
+                <div class="skills-content" data-content="cloud">
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
+                        <h4>AWS</h4>
+                        <div class="proficiency-bar"><div style="width: 85%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure">
+                        <h4>Azure</h4>
+                        <div class="proficiency-bar"><div style="width: 75%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Google_Cloud_logo.svg" alt="Google Cloud">
+                        <h4>Google Cloud</h4>
+                        <div class="proficiency-bar"><div style="width: 70%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker">
+                        <h4>Docker</h4>
+                        <div class="proficiency-bar"><div style="width: 88%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                    <div class="skill-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Kubernetes_logo_with_text.svg" alt="Kubernetes">
+                        <h4>Kubernetes</h4>
+                        <div class="proficiency-bar"><div style="width: 72%;"></div></div>
+                        <p>Proficiency</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+
+            <div class="project-card">
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with product catalog, cart, and secure payments.</p>
+                    <div class="project-tags">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>MongoDB</span>
+          <span>Stripe</span>
+        </div>
+      </div>
+      <a href="#">View Details →</a>
+    </div>
+
+    <div class="project-card purple-card">
+      <div class="project-info">
+        <h3>Forest Fire Detection</h3>
+        <p>Deep learning system to predict and detect forest fires using satellite data.</p>
+        <div class="project-tags">
+          <span>Python</span>
+          <span>TensorFlow</span>
+          <span>Keras</span>
+          <span>Satellite Data</span>
+        </div>
+      </div>
+      <a href="#">View Details →</a>
+    </div>
+
+    <div class="project-card green-card">
+      <div class="project-info">
+        <h3>AI RAG Chatbot</h3>
+        <p>Context-aware chatbot powered by Retrieval-Augmented Generation for accurate answers.</p>
+        <div class="project-tags">
+          <span>Python</span>
+          <span>LangChain</span>
+          <span>OpenAI API</span>
+          <span>Flask</span>
+        </div>
+      </div>
+      <a href="#">View Details →</a>
+    </div>
+
+    <div class="project-card orange-card">
+      <div class="project-info">
+        <h3>Database Design - Museum</h3>
+        <p>Relational database model for museum collections, staff, and visitor management.</p>
+        <div class="project-tags">
+          <span>SQL</span>
+          <span>ER Model</span>
+          <span>Database Schema</span>
+        </div>
+      </div>
+      <a href="#">View Details →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-info">
+        <h3>Database Design - Spotify Sales</h3>
+        <p>Schema design for analyzing music sales, subscriptions, and user activity.</p>
+        <div class="project-tags">
+          <span>SQL</span>
+          <span>Data Modeling</span>
+          <span>Database Design</span>
+        </div>
+      </div>
+      <a href="#">View Details →</a>
+    </div>
+
+    <div class="project-card purple-card">
+      <div class="project-info">
+        <h3>Database Design - Game Server</h3>
+        <p>Scalable database design for multiplayer game users, matchmaking, and leaderboards.</p>
+        <div class="project-tags">
+          <span>SQL</span>
+          <span>Database Normalization</span>
+          <span>Game Data</span>
+        </div>
+      </div>
+      <a href="#">View Details →</a>
+    </div>
+
+  </div>
+</section>
+
+
+        <section class="experience-section" id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-line"></div>
+                <div class="experience-item item-left">
+                    <div class="experience-card">
+                        <div class="company-logo" style="background-color: #cc8108;">LU</div>
+                        <div class="experience-details">
+                            <h4>Lets Upgrade</h4>
+                            <p class="role">Student Ambassador</p>
+                            <p class="years">March,2025 - Apr, 2025</p>
+                            <p class="description">As a Student Ambassador for Let's Upgrade, I actively promote tech learning and upskilling opportunities by engaging with students, organizing events, and fostering a strong community. My role involves spreading awareness about Let's Upgrade programs, encouraging participation in workshops, and enhancing peer learning. Through this program, I develop leadership, communication, and networking skills while contributing to a dynamic tech ecosystem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item item-right">
+                    <div class="experience-card">
+                        <div class="company-logo" style="background-color: #04a0f4;">ibm</div>
+                        <div class="experience-details">
+                            <h4>Edunet Foundation - IBM Skillbuild & SHELL</h4>
+                            <p class="role">Full Stack Developer</p>
+                            <p class="years">2020 - 2022</p>
+                            <p class="description">I developed and worked with a CNN model on project of Forest Fire Detection using Deep Learning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item item-left">
+                    <div class="experience-card">
+                        <div class="company-logo" style="background-color: #3182ce;">IBM</div>
+                        <div class="experience-details">
+                            <h4>Edunet Foundation - IBM Skillbuild</h4>
+                            <p class="role">Project Intern - Frontend Development</p>
+                            <p class="years">Aug,2025 - Sept,2025</p>
+                            <p class="description">Built and maintained web applications for startup clients. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievements-section" id="achievements">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <i class='bx bxs-trophy'></i>
+                    <p class="achievement-number">28</p>
+                    <p class="achievement-description">Valuable Certifications</p>
+                </div>
+                <div class="achievement-card">
+                    <i class='bx bx-medal'></i>
+                    <p class="achievement-number">32</p>
+                    <p class="achievement-description">Achievements Unlocked</p>
+                </div>
+                <div class="achievement-card">
+                    <i class='bx bxs-star'></i>
+                    <p class="achievement-number">7</p>
+                    <p class="achievement-description">Projects Completed</p>
+                </div>
+                <div class="achievement-card">
+                    <i class='bx bxs-star'></i>
+                    <p class="achievement-number">3</p>
+                    <p class="achievement-description">Open Source Contributions</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-section" id="blog">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <span class="blog-tag">Technology</span>
+                    <span class="read-time">5 min read</span>
+                    <h4>The Future of Web Development</h4>
+                    <p>Exploring the latest trends and technologies shaping the future of web development.</p>
+                    <a href="#">Read More →</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-tag">Tutorial</span>
+                    <span class="read-time">8 min read</span>
+                    <h4>Mastering React Hooks</h4>
+                    <p>A comprehensive guide to understanding and effectively using React Hooks in your projects.</p>
+                    <a href="#">Read More →</a>
+                </div>
+                <div class="blog-card">
+                    <span class="blog-tag">Architecture</span>
+                    <span class="read-time">12 min read</span>
+                    <h4>Building Scalable Applications</h4>
+                    <p>Best practices and architectural patterns for building applications that scale.</p>
+                    <a href="#">Read More →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">Have a project in mind or want to chat? I'd love to hear from you!</p>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Your Email">
+                    <textarea name="message" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Connect With Me</h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/abhishekkumar177"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/abhishek-kumar-177"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://twitter.com/abhishek_kumar177"><i class='bx bxl-twitter'></i></a>
+                        <a href="https://www.instagram.com/abhishek_kumar177"><i class='bx bxl-instagram'></i></a>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bx-envelope'></i>
+                        <p>Email</p>
+                        <p class="info-value">abhishek.kumar@example.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bx-map'></i>
+                        <p>Location</p>
+                        <p class="info-value">Howrah, India</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Abhishek Kumar</h3>
+            <p>FullStack Java Developer & UI/UX Designer</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
