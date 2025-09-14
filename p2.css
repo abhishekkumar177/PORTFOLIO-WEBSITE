@@ -79,6 +79,12 @@ body {
     overflow: hidden;
 }
 
+/* Hover effect */
+.mobile-screen-container:hover .role-text {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+}
+
 .card-content {
     position: absolute;
     top: 0;
@@ -91,19 +97,26 @@ body {
 
 .card-content video {
     width: 100%;
-    height: 70%;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
 .role-text {
+    position: absolute; /* Position over the video */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     padding: 15px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
 .role-text .icon {
@@ -119,6 +132,24 @@ body {
 .role-text p {
     font-size: 0.8em;
     margin: 0;
+}
+
+/* Button Styling */
+.role-button {
+    background: linear-gradient(45deg, #FF6F61, #2EC0F9);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.role-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* Footer Styling */
