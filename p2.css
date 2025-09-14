@@ -167,5 +167,31 @@ body {
 .page-footer h3 {
     font-size: 1em;
     font-weight: 300;
-    margin: 0;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-icon .emoji {
+    filter: grayscale(100%);
+    transition: filter 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}
+
+.social-icon:hover .emoji {
+    filter: grayscale(0%);
 }
