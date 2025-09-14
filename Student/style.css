@@ -1,0 +1,215 @@
+/* General Styles */
+:root {
+    --light-orange: #ffe9d7;
+    --dark-text: #333;
+    --button-glow: #ff7f50;
+    --card-glow: #48c78e;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-text);
+    background-color: #fff;
+}
+
+/* Entry Experience Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-orange);
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-icons img {
+    position: absolute;
+    opacity: 0.7;
+}
+
+.icon-1 { top: 10%; left: 5%; width: 80px; }
+.icon-2 { bottom: 15%; right: 10%; width: 100px; }
+.icon-3 { top: 20%; right: 20%; width: 90px; }
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.avatar-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tagline {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.subline {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* Dialogue Bubbles Section */
+.dialogue-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 50px;
+    text-align: center;
+}
+
+.dialogue-bubble {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dialogue-bubble:hover {
+    box-shadow: 0 0 15px var(--card-glow);
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Student-Centric Features Section */
+.features-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.carousel-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-card {
+    flex: 0 0 30%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.project-card:hover {
+    box-shadow: 0 0 20px var(--card-glow);
+    transform: rotateY(15deg);
+}
+
+.card-tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 0.8rem;
+}
+
+.resources-section {
+    margin-top: 40px;
+}
+
+.resources-title {
+    font-size: 2rem;
+}
+
+.resources-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.resources-section a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+    text-align: center;
+    padding: 50px;
+}
+
+.cta-text {
+    font-size: 1.8rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--button-glow);
+}
+
+/* Student Footer Section */
+.student-footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #f0f0f0;
+}
+
+.footer-quote {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer-icons img {
+    width: 50px;
+    margin: 0 10px;
+}
