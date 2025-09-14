@@ -48,19 +48,19 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Add styles for profile image, follow button, etc. */
+/* Corrected styles for profile and artwork images */
 #profile-image, #artwork-image {
-    width: 200px; /* Adjust size as needed */
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 100%; /* The image will take up the full width of its section */
+    height: 100%; /* The image will take up the full height of its section */
+    object-fit: contain; /* Ensures the entire image is visible, fitting within its container */
+    border-radius: 0; /* This removes the circular shape */
     border: 2px solid transparent;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #profile-image:hover, #artwork-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px 5px var(--neon-blue); /* Updated glow color */
+    box-shadow: 0 0 15px 5px var(--neon-blue);
 }
 
 #follow-me-button {
