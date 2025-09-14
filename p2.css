@@ -1,0 +1,113 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+    background: linear-gradient(135deg, #FF6F61 0%, #2EC0F9 100%); /* Orange-blue gradient */
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+.page-header {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Main Body and Mobile Screen Container */
+.page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.mobile-screen-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Mobile screen width */
+    height: 600px; /* Mobile screen height */
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-placeholder {
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    text-align: center;
+}
+
+.roles-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    padding: 10px 0;
+}
+
+/* Role Division Styling */
+.role-division {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 5px 0;
+    text-align: center;
+    width: 90%;
+    opacity: 0; /* Initially hidden for GSAP animation */
+}
+
+.role-division h2 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.role-division p {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.role-division .icon {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+/* Footer Styling */
+.page-footer {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+    border-radius: 15px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.page-footer h3 {
+    font-size: 1em;
+    font-weight: 300;
+    margin: 0;
+}
