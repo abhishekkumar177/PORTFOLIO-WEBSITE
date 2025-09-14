@@ -1,17 +1,26 @@
 :root {
-  --orange-hue-base: #ff6600;
-  --orange-hue-light: #ff9933;
-  --pixel-size: 2px; /* For the pixelated background */
+    --neon-red: #ff0077;
+    --neon-blue: #00e5ff;
 }
 
 body {
-    background: linear-gradient(45deg, var(--orange-hue-base), var(--orange-hue-light));
-    /* The CSS for the pixelated background will be more complex, likely using multiple pseudo-elements or a base64 image */
-    background-size: cover;
-    display: grid;
-    place-items: center; /* Centers the content */
+    background: linear-gradient(135deg, #000000 0%, #0a0a0d 100%);
+    color: #fff;
+    font-family: 'Courier New', monospace;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Hide scrollbars */
+    position: relative;
+}
+
+/* Position the canvas behind all content */
+#futuristic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 /* 4x4 Layout */
@@ -21,33 +30,52 @@ body {
     grid-template-rows: repeat(2, 1fr);
     width: 100%;
     height: 100%;
+    position: relative; /* Ensure the content is on top of the canvas */
 }
 
 .page-section {
-    /* Base styling for all sections */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Important for animation effects */
+    overflow: hidden;
 }
 
 /* Specific section styles */
 #tagline-section h1 {
-    font-family: 'Courier New', monospace; /* Classic typewriter font */
     font-size: 5vw;
     font-weight: bold;
     color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glowing text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Add styles for profile image, follow button, etc. */
-#profile-image {
-    border-radius: 50%; /* Circular frame */
-    border: 2px solid transparent; /* Placeholder for glowing border */
+#profile-image, #artwork-image {
+    width: 200px; /* Adjust size as needed */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid transparent;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-#profile-image:hover {
-    transform: scale(1.05); /* Smooth zoom-in */
-    box-shadow: 0 0 15px 5px rgba(255, 102, 0, 0.8); /* Glow border */
+#profile-image:hover, #artwork-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px var(--neon-blue); /* Updated glow color */
+}
+
+#follow-me-button {
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.2rem;
+    border: 1px solid var(--neon-red);
+    box-shadow: 0 0 10px var(--neon-red);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#follow-me-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px var(--neon-red);
 }
