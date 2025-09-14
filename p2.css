@@ -1,6 +1,6 @@
 body {
-    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
-    background: linear-gradient(135deg, #FF6F61 0%, #2EC0F9 100%); /* Orange-blue gradient */
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FF6F61 0%, #2EC0F9 100%);
     color: #fff;
     margin: 0;
     padding: 20px;
@@ -28,71 +28,76 @@ body {
     margin: 0;
 }
 
-/* Main Body and Mobile Screen Container */
+/* Main Body and Sections */
 .page-body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Allows screens to wrap on smaller devices */
+    gap: 30px;
     flex-grow: 1;
     width: 100%;
+}
+
+.body-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-basis: 250px; /* A base width for each section */
 }
 
 .mobile-screen-container {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 300px; /* Mobile screen width */
-    height: 600px; /* Mobile screen height */
-    overflow: hidden;
+    width: 100%;
+    /* Set aspect ratio for smartphone-like shape (e.g., 9:16) */
+    padding-bottom: 177.77%; /* 16/9 = 1.7777... */
     position: relative;
-    padding: 10px;
+    overflow: hidden;
+}
+
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.media-placeholder {
-    height: 50%;
-    background-color: rgba(0, 0, 0, 0.2);
+.card-content img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+}
+
+.role-text {
+    padding: 15px;
+    text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1em;
-    text-align: center;
+    flex-grow: 1;
 }
 
-.roles-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 50%;
-    padding: 10px 0;
+.role-text .icon {
+    font-size: 2em;
+    margin-bottom: 5px;
 }
 
-/* Role Division Styling */
-.role-division {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 15px;
-    margin: 5px 0;
-    text-align: center;
-    width: 90%;
-    opacity: 0; /* Initially hidden for GSAP animation */
-}
-
-.role-division h2 {
+.role-text h2 {
     font-size: 1.2em;
     margin: 5px 0;
 }
 
-.role-division p {
+.role-text p {
     font-size: 0.8em;
     margin: 0;
-}
-
-.role-division .icon {
-    font-size: 1.5em;
-    margin-bottom: 5px;
 }
 
 /* Footer Styling */
