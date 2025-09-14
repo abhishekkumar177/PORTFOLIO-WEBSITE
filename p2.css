@@ -22,7 +22,6 @@ body {
     z-index: -1;
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(135deg, #FF9FFC, #5227FF);
 }
 
 .blind {
@@ -103,7 +102,7 @@ body {
 }
 
 .role-text {
-    position: absolute; /* Position over the video */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -114,9 +113,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .role-text .icon {
