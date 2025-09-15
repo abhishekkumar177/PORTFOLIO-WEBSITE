@@ -1,108 +1,199 @@
+// Ensure GSAP and its plugins are loaded before this script runs
 document.addEventListener('DOMContentLoaded', () => {
-    // GSAP animations for Entry Experience
-    gsap.registerPlugin(TextPlugin);
 
-    // Typewriter effect for tagline
-    gsap.to(".tagline", {
-        duration: 2,
-        text: "Hey Student! Glad you swung by.",
-        ease: "power2.inOut",
-        delay: 0.5
-    });
+    // GSAP Register Plugins
+    gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
-    // Floating icons with yoyo effect
-    gsap.to(".icon-1", {
-        y: -20,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut"
-    });
-    gsap.to(".icon-2", {
-        y: 15,
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut"
-    });
-    gsap.to(".icon-3", {
-        y: -10,
-        duration: 1.8,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut"
-    });
+    // Section 1: Entry Experience
+    const heroTl = gsap.timeline();
 
-    // Subtle bounce-in for avatar
-    gsap.from(".avatar-container", {
-        scale: 0,
-        duration: 1,
-        ease: "elastic.out(1, 0.5)",
-        delay: 1.5
-    });
+    heroTl
+        // Avatar animation
+        .from('.avatar', {
+            duration: 1.5,
+            scale: 0,
+            ease: 'back.out(1.7)'
+        })
+        .to('.shadow-reveal', {
+            duration: 0.5,
+            scale: 1,
+            opacity: 1,
+            ease: 'power2.out'
+        }, "<0.5")
+        // Typewriter effect on tagline
+        .to('.tagline', {
+            duration: 2,
+            text: {
+                value: "Hey Student! Glad you swung by.",
+                speed: 0.1
+            },
+            ease: "none"
+        })
+        .from('.subline', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power2.out'
+        }, "-=0.5")
+        .from('.hero-section .video-container', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power2.out'
+        }, "-=0.5");
 
-    // Dialogue Bubbles slide-in
-    gsap.from(".dialogue-bubble", {
-        x: -200,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "elastic.out(1, 0.5)",
+    // Section 2: Dialogue Bubbles
+    gsap.from('.bubble', {
         scrollTrigger: {
-            trigger: ".dialogue-section",
-            start: "top 80%"
-        }
-    });
-
-    // Carousel cards stagger fade-in
-    gsap.from(".project-card", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: ".carousel-track",
-            start: "top 80%"
-        }
-    });
-
-    // Call-to-action text fade-up
-    gsap.from(".cta-text", {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: ".cta-section",
-            start: "top 80%"
-        }
-    });
-
-    // Footer icons float and slow spin
-    gsap.to(".footer-icons img", {
-        y: "random(-10, 10)",
-        rotation: "random(-5, 5)",
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        stagger: 0.5,
-        scrollTrigger: {
-            trigger: ".student-footer",
-            start: "top 90%"
-        }
-    });
-
-    // Footer quote fade-in with delay
-    gsap.from(".footer-quote", {
-        opacity: 0,
+            trigger: '.dialogue-bubbles-section',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
         duration: 1.5,
-        delay: 1,
-        ease: "power2.out",
+        scale: 0.5,
+        opacity: 0,
+        y: 100,
+        stagger: 0.3,
+        ease: 'elastic.out(1, 0.5)'
+    });
+
+    // Hover effect for dialogue bubbles
+    document.querySelectorAll('.bubble').forEach(bubble => {
+        bubble.addEventListener('mouseenter', () => {
+            gsap.to(bubble, {
+                duration: 0.3,
+                y: -10,
+                rotation: -2,
+                ease: 'power1.out',
+                boxShadow: '0 10px 30px rgba(255, 126, 95, 0.5)'
+            });
+            gsap.to(bubble.querySelector('.video-preview-container iframe'), {
+                duration: 0.5,
+                opacity: 1
+            });
+            gsap.to(bubble.querySelector('.play-overlay'), {
+                duration: 0.3,
+                scale: 1.1,
+                ease: 'back.out(1.7)'
+            });
+        });
+        bubble.addEventListener('mouseleave', () => {
+            gsap.to(bubble, {
+                duration: 0.3,
+                y: 0,
+                rotation: 0,
+                ease: 'power1.in',
+                boxShadow: 'none'
+            });
+            gsap.to(bubble.querySelector('.video-preview-container iframe'), {
+                duration: 0.5,
+                opacity: 0.2
+            });
+            gsap.to(bubble.querySelector('.play-overlay'), {
+                duration: 0.3,
+                scale: 1,
+                ease: 'power1.out'
+            });
+        });
+    });
+
+    // Section 3: Student-Centric Features (Carousel)
+    gsap.from('.project-card', {
         scrollTrigger: {
-            trigger: ".student-footer",
-            start: "top 90%"
+            trigger: '.student-features-section',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        },
+        duration: 1,
+        opacity: 0,
+        x: -100,
+        stagger: 0.2,
+        ease: 'power2.out'
+    });
+
+    // Tag animation on card entry
+    document.querySelectorAll('.project-card').forEach(card => {
+        gsap.from(card.querySelectorAll('.tag'), {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            duration: 0.5,
+            scale: 0,
+            opacity: 0,
+            stagger: 0.1,
+            ease: 'back.out(1.7)'
+        });
+    });
+
+    // Section 4: Call-to-Action
+    const ctaTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cta-section',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
         }
     });
+
+    ctaTl
+        .from('.cta-text', {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: 'power4.out',
+            stagger: { each: 0.1, from: 'random' }
+        })
+        .from('.cta-button', {
+            duration: 1,
+            scale: 0.5,
+            opacity: 0,
+            ease: 'back.out(1.7)'
+        }, "-=0.5")
+        .from('.cta-section .video-container', {
+            duration: 1,
+            scale: 0.5,
+            opacity: 0,
+            ease: 'back.out(1.7)'
+        }, "-=0.8");
+
+    // Section 5: Student Footer
+    const footerTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.footer-section',
+            start: 'top 90%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    footerTl
+        .from('.footer-quote', {
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            ease: 'power2.out'
+        })
+        .from('.footer-icons .footer-icon', {
+            duration: 1,
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            ease: 'power2.out'
+        }, "-=0.5");
+
+    // Floating orbit animation for footer icons
+    const icons = document.querySelectorAll('.footer-icon');
+    icons.forEach((icon, index) => {
+        gsap.to(icon, {
+            y: () => (Math.random() - 0.5) * 20, // Small random vertical float
+            x: () => (Math.random() - 0.5) * 20, // Small random horizontal float
+            rotation: () => (Math.random() - 0.5) * 10,
+            duration: 3 + Math.random(),
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: index * 0.2 // Stagger the start
+        });
+    });
+
 });
