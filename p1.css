@@ -9,8 +9,9 @@ body {
     font-family: 'Courier New', monospace;
     height: 100vh;
     margin: 0;
-    overflow: hidden; /* Hide scrollbars */
+    overflow: hidden;
     position: relative;
+    cursor: none;
 }
 
 /* Position the canvas behind all content */
@@ -30,7 +31,7 @@ body {
     grid-template-rows: repeat(2, 1fr);
     width: 100%;
     height: 100%;
-    position: relative; /* Ensure the content is on top of the canvas */
+    position: relative;
 }
 
 .page-section {
@@ -48,12 +49,12 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Corrected styles for profile and artwork images */
+/* Corrected styles for profile and artwork videos */
 #profile-image, #artwork-image {
-    width: 100%; /* The image will take up the full width of its section */
-    height: 100%; /* The image will take up the full height of its section */
-    object-fit: contain; /* Ensures the entire image is visible, fitting within its container */
-    border-radius: 0; /* This removes the circular shape */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
     border: 2px solid transparent;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -71,11 +72,25 @@ body {
     font-size: 1.2rem;
     border: 1px solid var(--neon-red);
     box-shadow: 0 0 10px var(--neon-red);
-    cursor: pointer;
+    cursor: none;
     transition: all 0.3s ease-in-out;
 }
 
 #follow-me-button:hover {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 20px var(--neon-red);
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: exclusion;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
 }

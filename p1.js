@@ -129,3 +129,36 @@ function animate() {
 // Start the animation
 initParticles();
 animate();
+
+// Add custom cursor animations
+const customCursor = document.querySelector('.custom-cursor');
+const videos = document.querySelectorAll('video');
+
+// Mouse follow effect
+document.addEventListener('mousemove', (e) => {
+    gsap.to(customCursor, {
+        duration: 0.5,
+        x: e.clientX,
+        y: e.clientY,
+        ease: 'power2.out'
+    });
+});
+
+// Hover effect for videos
+videos.forEach(video => {
+    video.addEventListener('mouseenter', () => {
+        gsap.to(customCursor, {
+            duration: 0.3,
+            scale: 2,
+            opacity: 0.5
+        });
+    });
+
+    video.addEventListener('mouseleave', () => {
+        gsap.to(customCursor, {
+            duration: 0.3,
+            scale: 1,
+            opacity: 1
+        });
+    });
+});
