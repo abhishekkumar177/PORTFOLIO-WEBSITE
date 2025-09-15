@@ -1,161 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Student Persona</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Fullscreen Video Background</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="video-background-canvas">  </canvas>
-    <video id="background-video" src="./src_vid/Background.mp4" muted loop autoplay playsinline preload="auto" style="display:none;"></video>
 
-    <header class="section hero-section">
-        <div class="background-animation"></div>
-        <div class="content">
-            <div class="avatar-container">
-                <div class="avatar"></div>
-                <div class="shadow-reveal"></div>
-            </div>
-            <div class="text-content">
-                <h1 class="tagline"></h1>
-                <p class="subline">Here’s how my portfolio can inspire your learning journey.</p>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/learning-intro" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </header>
+<div class="video-container">
+  <video autoplay muted loop id="myVideo">
+    <source src="Background.mp4" type="video/mp4">
+  </video>
+</div>
 
-    <section class="section dialogue-bubbles-section">
-        <h2>Dialogue Bubbles</h2>
-        <div class="bubble-grid">
-            <div class="bubble bubble1">
-                <p class="bubble-text">Looking for inspiration in projects?</p>
-                <div class="video-preview-container">
-                    <iframe src="https://www.youtube.com/embed/project-inspiration" frameborder="0" allowfullscreen></iframe>
-                    <div class="play-overlay"></div>
-                </div>
-            </div>
-            <div class="bubble bubble2">
-                <p class="bubble-text">I share my journey, notes, and real-world projects.</p>
-                <div class="video-preview-container">
-                    <iframe src="https://www.youtube.com/embed/student-journey" frameborder="0" allowfullscreen></iframe>
-                    <div class="play-overlay"></div>
-                </div>
-            </div>
-            <div class="bubble bubble3">
-                <p class="bubble-text">From coding basics to advanced AI — find something useful here.</p>
-                <div class="video-preview-container">
-                    <iframe src="https://www.youtube.com/embed/ai-basics" frameborder="0" allowfullscreen></iframe>
-                    <div class="play-overlay"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<script src="script.js"></script>
 
-    <section class="section student-features-section">
-        <h2>Student Projects & Resources</h2>
-        <div class="features-carousel">
-            <div class="flip-card project-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>Forest Fire Detection</h3>
-                        <p class="description">AI + Satellite Data system</p>
-                        <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">Keras</span>
-                        </div>
-                    </div>
-                    <div class="flip-card-back">
-                        <iframe src="https://www.youtube.com/embed/forest-fire-demo" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-overlay"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card project-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>Database Design Basics</h3>
-                        <p class="description">SQL + ER modeling explained</p>
-                        <div class="tags">
-                            <span class="tag">SQL</span>
-                            <span class="tag">Schema</span>
-                        </div>
-                    </div>
-                    <div class="flip-card-back">
-                        <iframe src="https://www.youtube.com/embed/sql-basics" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-overlay"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card project-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>AI RAG Chatbot</h3>
-                        <p class="description">Context-aware chatbot project</p>
-                        <div class="tags">
-                            <span class="tag">LangChain</span>
-                            <span class="tag">OpenAI API</span>
-                            <span class="tag">Flask</span>
-                        </div>
-                    </div>
-                    <div class="flip-card-back">
-                        <iframe src="https://www.youtube.com/embed/rag-chatbot-demo" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-overlay"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card project-card resource-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>Study Resources</h3>
-                        <ul>
-                            <li>GitHub Repos</li>
-                            <li>Notes Blog</li>
-                            <li>Cheat Sheets</li>
-                        </ul>
-                    </div>
-                    <div class="flip-card-back">
-                        <iframe src="https://www.youtube.com/embed/resources-overview" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section cta-section">
-        <div class="cta-content">
-            <p class="cta-text">Want to learn together? Let’s connect and grow.</p>
-            <a href="#" class="cta-button">Join Study Circle</a>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/call-to-action-intro" frameborder="0" allowfullscreen></iframe>
-                <div class="pulsing-play-button"></div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="section footer-section">
-        <div class="footer-background"></div>
-        <p class="footer-quote">Knowledge shared = Knowledge multiplied 🚀</p>
-        <div class="footer-icons">
-            <span class="footer-icon" data-icon="books">📚</span>
-            <span class="footer-icon" data-icon="laptop">💻</span>
-            <span class="footer-icon" data-icon="lightbulb">💡</span>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/final-message" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
