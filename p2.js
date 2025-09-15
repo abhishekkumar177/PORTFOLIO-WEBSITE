@@ -1,5 +1,5 @@
 // Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 // Animate each mobile screen container with a staggered fade-in
 gsap.from(".mobile-screen-container", {
@@ -39,3 +39,34 @@ backgroundTimeline
         duration: 5,
         background: "linear-gradient(135deg, #be2edd, #22a6b3, #48dbfb, #ff6b6b)"
     });
+
+// Animate the header on page load
+gsap.from(".page-header h1", {
+    opacity: 0,
+    y: -50,
+    duration: 1.5,
+    ease: "power3.out"
+});
+
+// Animate the header subline after a delay
+gsap.from(".header-subline", {
+    opacity: 0,
+    y: 20,
+    duration: 1,
+    delay: 0.5,
+    ease: "power3.out"
+});
+
+// Animate footer elements on scroll
+gsap.from(".page-footer h3, .footer-subline, .social-icon", {
+    opacity: 0,
+    y: 20,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+        trigger: ".page-footer",
+        start: "top 90%",
+        toggleActions: "play none none none"
+    }
+});

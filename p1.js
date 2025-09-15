@@ -10,35 +10,35 @@ gsap.from(".page-section", {
     ease: "power3.out"
 });
 
-// Typewriter and glowing text reveal for the tagline
-let tagline = "Hello Visitor, Welcome to my Portfolio";
-let taglineElement = document.querySelector("#tagline-section h1");
+// ******************************************************
+// New Code for the text shuffle animation
+// ******************************************************
+const shuffleText = document.getElementById('shuffle-text');
+const chars = shuffleText.querySelectorAll('span');
 
-// Ensure the element is ready before animating
-gsap.set(taglineElement, { opacity: 0 }); 
-
-// Create a timeline for the text animation
-let textTimeline = gsap.timeline({
-  delay: 0.5 // delay the start slightly
+// Initial state for shuffle animation
+gsap.set(chars, {
+    opacity: 0,
+    y: "100%",
+    rotationX: -90
 });
-textTimeline
-  .to(taglineElement, {
-    opacity: 1,
-    duration: 0.1 // Fade in the empty element
-  })
-  .to(taglineElement, {
-    duration: 2,
-    text: tagline,
-    ease: "power1.inOut"
-  })
-  .fromTo(taglineElement, { textShadow: "0 0 0 white" }, {
-    textShadow: "0 0 10px white",
-    duration: 1,
-    repeat: -1,
-    yoyo: true,
-    ease: "power1.inOut"
-  });
 
+// Create a timeline for the shuffle animation
+let shuffleTimeline = gsap.timeline({ paused: true });
+shuffleTimeline
+    .to(chars, {
+        opacity: 1,
+        y: "0%",
+        rotationX: 0,
+        stagger: 0.03,
+        duration: 0.35,
+        ease: "power3.out"
+    });
+
+// Animate on hover
+shuffleText.addEventListener('mouseenter', () => {
+    shuffleTimeline.restart();
+});
 
 // Pulse + floating effect for the Follow Me button
 gsap.to("#follow-me-button", {

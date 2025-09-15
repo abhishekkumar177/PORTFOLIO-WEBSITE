@@ -48,6 +48,12 @@ body {
     margin: 0;
 }
 
+.header-subline {
+    font-size: 1.2em;
+    font-style: italic;
+    opacity: 0; /* Will be animated */
+}
+
 /* Main Body and Sections */
 .page-body {
     display: flex;
@@ -161,11 +167,19 @@ body {
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
     z-index: 1;
+    backdrop-filter: blur(5px);
 }
 
 .page-footer h3 {
     font-size: 1em;
     font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.footer-subline {
+    font-size: 0.9em;
+    font-style: italic;
+    opacity: 0; /* Will be animated */
     margin-bottom: 20px;
 }
 
@@ -189,6 +203,7 @@ body {
 
 .social-icon:hover {
     transform: translateY(-5px);
+    text-shadow: 0 0 8px var(--neon-blue), 0 0 15px var(--neon-blue);
 }
 
 .social-icon:hover .emoji {
