@@ -1,18 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Fullscreen Video Background</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Student Persona</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
 </head>
 <body>
+    <div class="video-container">
+        <video autoplay muted loop id="myVideo">
+            <source src="Background.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <section id="entry-experience" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <img src="https://via.placeholder.com/200x200?text=Student+Avatar" alt="Student Avatar">
+            </div>
+            <h1 class="tagline">Hey Student! Glad you swung by.</h1>
+            <p class="subline">Here’s how my portfolio can inspire your learning journey.</p>
+            <div class="hero-video">
+                <iframe src="https://www.youtube.com/embed/learning-intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
-<div class="video-container">
-  <video autoplay muted loop id="myVideo">
-    <source src="Background.mp4" type="video/mp4">
-  </video>
-</div>
+    <section id="dialogue-bubbles" class="grid-section">
+        <div class="dialogue-bubble">
+            <p>Looking for inspiration in projects?</p>
+            <div class="video-container-small">
+                <iframe src="https://www.youtube.com/embed/project-inspiration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="dialogue-bubble">
+            <p>I share my journey, notes, and real-world projects.</p>
+            <div class="video-container-small">
+                <iframe src="https://www.youtube.com/embed/student-journey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="dialogue-bubble">
+            <p>From coding basics to advanced AI — find something useful here.</p>
+            <div class="video-container-small">
+                <iframe src="https://www.youtube.com/embed/ai-basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <section id="student-features" class="carousel-section">
+        <h2>Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Forest Fire Detection</h3>
+                        <p>AI + Satellite Data system</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Keras</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <iframe src="https://www.youtube.com/embed/forest-fire-demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Database Design Basics</h3>
+                        <p>SQL + ER modeling explained</p>
+                        <div class="tags">
+                            <span>SQL</span>
+                            <span>Schema</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <iframe src="https://www.youtube.com/embed/sql-basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>AI RAG Chatbot</h3>
+                        <p>Context-aware chatbot project</p>
+                        <div class="tags">
+                            <span>LangChain</span>
+                            <span>OpenAI API</span>
+                            <span>Flask</span>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <iframe src="https://www.youtube.com/embed/rag-chatbot-demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="resources">
+            <h2>Study Resources</h2>
+            <ul>
+                <li><a href="#">GitHub Repos</a></li>
+                <li><a href="#">Notes Blog</a></li>
+                <li><a href="#">Cheat Sheets</a></li>
+            </ul>
+            <div class="resource-video">
+                <iframe src="https://www.youtube.com/embed/resources-overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="call-to-action" class="centered-section">
+        <h2 class="cta-text">Want to learn together? Let’s connect and grow.</h2>
+        <a href="#" id="cta-button" class="cta-button">Join Study Circle</a>
+        <div class="cta-video">
+            <iframe src="https://www.youtube.com/embed/call-to-action-intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <footer id="student-footer" class="minimal-footer">
+        <p class="footer-quote">Knowledge shared = Knowledge multiplied 🚀</p>
+        <div class="footer-icons">
+            <span class="icon">📚</span>
+            <span class="icon">💻</span>
+            <span class="icon">💡</span>
+        </div>
+        <div class="footer-video">
+            <iframe src="https://www.youtube.com/embed/final-message" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

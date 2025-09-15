@@ -1,41 +1,230 @@
 body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .video-container {
-  /* Position fixed to cover the entire viewport */
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1; /* Puts the video behind other content */
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Puts the video behind all content */
 }
 
 #myVideo {
-  /* This ensures the video fills the container while maintaining its aspect ratio */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover; /* Alternative to the above transform method */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
 
-/* Optional: Add some content on top of the video */
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+body {
+    color: #fff;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* New Gradient overlay on top of the video */
+.hero-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(255, 111, 97, 0.5), rgba(46, 192, 249, 0.5));
+    animation: gradientPulse 10s infinite;
+}
+
+@keyframes gradientPulse {
+    0% { background: linear-gradient(135deg, rgba(255, 111, 97, 0.5), rgba(46, 192, 249, 0.5)); }
+    50% { background: linear-gradient(135deg, rgba(46, 192, 249, 0.5), rgba(255, 111, 97, 0.5)); }
+    100% { background: linear-gradient(135deg, rgba(255, 111, 97, 0.5), rgba(46, 192, 249, 0.5)); }
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+.hero-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.tagline {
+    font-size: 3em;
+}
+
+/* Dialogue Bubbles */
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 50px;
+}
+
+.dialogue-bubble {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.dialogue-bubble:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.video-container-small {
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+}
+
+.video-container-small iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* Student-Centric Features */
+.carousel-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.carousel-item {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.flip-card-front {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.flip-card-back {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotateY(180deg);
+}
+
+.tags span {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.resources {
+    margin-top: 40px;
+}
+
+.resources ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resources li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Call-to-Action */
+.centered-section {
+    text-align: center;
+    padding: 50px;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.2rem;
+    border: 2px solid #ff0077;
+    box-shadow: 0 0 10px #ff0077;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px #ff0077;
+    transform: scale(1.1);
+}
+
+/* Footer */
+.minimal-footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-icons .icon {
+    font-size: 2em;
+    margin: 0 10px;
 }
