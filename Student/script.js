@@ -1,97 +1,8 @@
-// Add to Student/script.js
-
-// GSAP Register Plugins
-gsap.registerPlugin(TextPlugin, ScrollTrigger);
-
-// Canvas Wave Animation
-const waveCanvas = document.getElementById('wave-background');
-const waveCtx = waveCanvas.getContext('2d');
-
-let wavePoints = [];
-let waveProperties = {
-    lineColor: "#fff",
-    backgroundColor: "rgba(255, 255, 255, 0.05)",
-    waveSpeedX: 0.02,
-    waveSpeedY: 0.01,
-    waveAmpX: 40,
-    waveAmpY: 20,
-    xGap: 12,
-    yGap: 36
-};
-
-function resizeWaveCanvas() {
-    waveCanvas.width = window.innerWidth;
-    waveCanvas.height = window.innerHeight;
-    initWavePoints();
-}
-
-window.addEventListener('resize', resizeWaveCanvas);
-resizeWaveCanvas();
-
-function initWavePoints() {
-    wavePoints = [];
-    const numX = Math.ceil(waveCanvas.width / waveProperties.xGap);
-    const numY = Math.ceil(waveCanvas.height / waveProperties.yGap);
-    for (let i = 0; i <= numX; i++) {
-        wavePoints[i] = [];
-        for (let j = 0; j <= numY; j++) {
-            wavePoints[i][j] = {
-                x: i * waveProperties.xGap,
-                y: j * waveProperties.yGap,
-                originalY: j * waveProperties.yGap,
-                // Add a random offset for a more organic look
-                waveOffset: Math.random() * Math.PI * 2
-            };
-        }
-    }
-}
-
-function drawWave() {
-    waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
-    waveCtx.fillStyle = waveProperties.backgroundColor;
-    waveCtx.fillRect(0, 0, waveCanvas.width, waveCanvas.height);
-
-    const time = Date.now() * 0.001;
-
-    for (let i = 0; i < wavePoints.length; i++) {
-        for (let j = 0; j < wavePoints[i].length; j++) {
-            const point = wavePoints[i][j];
-            // Calculate new position based on sine waves
-            point.x = i * waveProperties.xGap + Math.sin(time * waveProperties.waveSpeedX + point.waveOffset) * waveProperties.waveAmpX;
-            point.y = point.originalY + Math.cos(time * waveProperties.waveSpeedY + point.waveOffset) * waveProperties.waveAmpY;
-
-            // Draw a small glowing point
-            const glow = waveCtx.createRadialGradient(point.x, point.y, 0, point.x, point.y, 10);
-            glow.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
-            glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
-            waveCtx.fillStyle = glow;
-            waveCtx.beginPath();
-            waveCtx.arc(point.x, point.y, 5, 0, Math.PI * 2);
-            waveCtx.fill();
-        }
-    }
-
-    // Connect the points to form lines
-    waveCtx.strokeStyle = waveProperties.lineColor;
-    waveCtx.lineWidth = 1;
-    for (let i = 0; i < wavePoints.length; i++) {
-        waveCtx.beginPath();
-        waveCtx.moveTo(wavePoints[i][0].x, wavePoints[i][0].y);
-        for (let j = 1; j < wavePoints[i].length; j++) {
-            waveCtx.lineTo(wavePoints[i][j].x, wavePoints[i][j].y);
-        }
-        waveCtx.stroke();
-    }
-
-    requestAnimationFrame(drawWave);
-}
-
-// Start the animation
-drawWave();
-
-// (The rest of your existing GSAP animations will go here, after the new canvas animation code)
-
+// Ensure GSAP and its plugins are loaded before this script runs
 document.addEventListener('DOMContentLoaded', () => {
+
+    // GSAP Register Plugins
+    gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
     // Section 1: Entry Experience
     const heroTl = gsap.timeline();
@@ -286,3 +197,109 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Update p1.js
+
+// ... (existing code for GSAP plugins and page load animation) ...
+
+// Typewriter and glowing text reveal for the tagline
+let taglineElement = document.querySelector("#tagline-section h1");
+let originalText = "Hello Visitor, Welcome to my Portfolio";
+
+// Create a timeline for the text animation
+let textTimeline = gsap.timeline({
+  delay: 0.5 // delay the start slightly
+});
+
+textTimeline
+  .to(taglineElement, {
+    duration: 2,
+    text: originalText,
+    ease: "power1.inOut"
+  })
+  .to(taglineElement, {
+    onStart: () => {
+      // Add the glitch class to start the CSS animation
+      taglineElement.classList.add('glitch-text');
+    }
+  }, "+=0.5") // Add a slight delay after the typewriter effect
+  .fromTo(taglineElement, { textShadow: "0 0 0 white" }, {
+    textShadow: "0 0 10px white",
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut"
+  });
+
+
+
+
+  // Update p1.js
+
+// GSAP Animations (Keep these as they are)
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+// Page load stagger reveal for all 4 sections
+gsap.from(".page-section", {
+    opacity: 0,
+    y: 50,
+    stagger: 0.3,
+    duration: 1.2,
+    ease: "power3.out"
+});
+
+// ******************************************************
+// New Code for the Canvas Video Background
+// ******************************************************
+const canvas = document.getElementById('video-background-canvas');
+const ctx = canvas.getContext('2d');
+const video = document.getElementById('background-video');
+
+// Adjust canvas size to window size
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Animation loop to draw video on canvas
+function drawVideoOnCanvas() {
+    // Check if the video is ready to be drawn
+    if (video.readyState >= 2) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Calculate aspect ratio to fit the video to the canvas without stretching
+        const videoRatio = video.videoWidth / video.videoHeight;
+        const canvasRatio = canvas.width / canvas.height;
+        let drawWidth, drawHeight, xOffset, yOffset;
+
+        if (videoRatio > canvasRatio) {
+            // Video is wider than canvas
+            drawHeight = canvas.height;
+            drawWidth = drawHeight * videoRatio;
+            xOffset = (canvas.width - drawWidth) / 2;
+            yOffset = 0;
+        } else {
+            // Video is taller than canvas
+            drawWidth = canvas.width;
+            drawHeight = drawWidth / videoRatio;
+            xOffset = 0;
+            yOffset = (canvas.height - drawHeight) / 2;
+        }
+
+        // Draw the video frame onto the canvas
+        ctx.drawImage(video, xOffset, yOffset, drawWidth, drawHeight);
+    }
+    requestAnimationFrame(drawVideoOnCanvas);
+}
+
+// Start drawing the video once it's loaded
+video.addEventListener('loadedmetadata', () => {
+    drawVideoOnCanvas();
+});
+
+// If the video is already loaded, start the drawing
+if (video.readyState >= 2) {
+    drawVideoOnCanvas();
+}
