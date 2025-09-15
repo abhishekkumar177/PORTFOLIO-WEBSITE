@@ -198,59 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Update p1.js
-
-// ... (existing code for GSAP plugins and page load animation) ...
-
-// Typewriter and glowing text reveal for the tagline
-let taglineElement = document.querySelector("#tagline-section h1");
-let originalText = "Hello Visitor, Welcome to my Portfolio";
-
-// Create a timeline for the text animation
-let textTimeline = gsap.timeline({
-  delay: 0.5 // delay the start slightly
-});
-
-textTimeline
-  .to(taglineElement, {
-    duration: 2,
-    text: originalText,
-    ease: "power1.inOut"
-  })
-  .to(taglineElement, {
-    onStart: () => {
-      // Add the glitch class to start the CSS animation
-      taglineElement.classList.add('glitch-text');
-    }
-  }, "+=0.5") // Add a slight delay after the typewriter effect
-  .fromTo(taglineElement, { textShadow: "0 0 0 white" }, {
-    textShadow: "0 0 10px white",
-    duration: 1,
-    repeat: -1,
-    yoyo: true,
-    ease: "power1.inOut"
-  });
-
-
-
-
-  // Update p1.js
-
-// GSAP Animations (Keep these as they are)
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
-
-// Page load stagger reveal for all 4 sections
-gsap.from(".page-section", {
-    opacity: 0,
-    y: 50,
-    stagger: 0.3,
-    duration: 1.2,
-    ease: "power3.out"
-});
-
-// ******************************************************
 // New Code for the Canvas Video Background
-// ******************************************************
 const canvas = document.getElementById('video-background-canvas');
 const ctx = canvas.getContext('2d');
 const video = document.getElementById('background-video');
