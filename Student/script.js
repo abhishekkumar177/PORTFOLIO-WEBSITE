@@ -1,8 +1,97 @@
-// Ensure GSAP and its plugins are loaded before this script runs
-document.addEventListener('DOMContentLoaded', () => {
+// Add to Student/script.js
 
-    // GSAP Register Plugins
-    gsap.registerPlugin(TextPlugin, ScrollTrigger);
+// GSAP Register Plugins
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
+
+// Canvas Wave Animation
+const waveCanvas = document.getElementById('wave-background');
+const waveCtx = waveCanvas.getContext('2d');
+
+let wavePoints = [];
+let waveProperties = {
+    lineColor: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0.05)",
+    waveSpeedX: 0.02,
+    waveSpeedY: 0.01,
+    waveAmpX: 40,
+    waveAmpY: 20,
+    xGap: 12,
+    yGap: 36
+};
+
+function resizeWaveCanvas() {
+    waveCanvas.width = window.innerWidth;
+    waveCanvas.height = window.innerHeight;
+    initWavePoints();
+}
+
+window.addEventListener('resize', resizeWaveCanvas);
+resizeWaveCanvas();
+
+function initWavePoints() {
+    wavePoints = [];
+    const numX = Math.ceil(waveCanvas.width / waveProperties.xGap);
+    const numY = Math.ceil(waveCanvas.height / waveProperties.yGap);
+    for (let i = 0; i <= numX; i++) {
+        wavePoints[i] = [];
+        for (let j = 0; j <= numY; j++) {
+            wavePoints[i][j] = {
+                x: i * waveProperties.xGap,
+                y: j * waveProperties.yGap,
+                originalY: j * waveProperties.yGap,
+                // Add a random offset for a more organic look
+                waveOffset: Math.random() * Math.PI * 2
+            };
+        }
+    }
+}
+
+function drawWave() {
+    waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+    waveCtx.fillStyle = waveProperties.backgroundColor;
+    waveCtx.fillRect(0, 0, waveCanvas.width, waveCanvas.height);
+
+    const time = Date.now() * 0.001;
+
+    for (let i = 0; i < wavePoints.length; i++) {
+        for (let j = 0; j < wavePoints[i].length; j++) {
+            const point = wavePoints[i][j];
+            // Calculate new position based on sine waves
+            point.x = i * waveProperties.xGap + Math.sin(time * waveProperties.waveSpeedX + point.waveOffset) * waveProperties.waveAmpX;
+            point.y = point.originalY + Math.cos(time * waveProperties.waveSpeedY + point.waveOffset) * waveProperties.waveAmpY;
+
+            // Draw a small glowing point
+            const glow = waveCtx.createRadialGradient(point.x, point.y, 0, point.x, point.y, 10);
+            glow.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
+            glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            waveCtx.fillStyle = glow;
+            waveCtx.beginPath();
+            waveCtx.arc(point.x, point.y, 5, 0, Math.PI * 2);
+            waveCtx.fill();
+        }
+    }
+
+    // Connect the points to form lines
+    waveCtx.strokeStyle = waveProperties.lineColor;
+    waveCtx.lineWidth = 1;
+    for (let i = 0; i < wavePoints.length; i++) {
+        waveCtx.beginPath();
+        waveCtx.moveTo(wavePoints[i][0].x, wavePoints[i][0].y);
+        for (let j = 1; j < wavePoints[i].length; j++) {
+            waveCtx.lineTo(wavePoints[i][j].x, wavePoints[i][j].y);
+        }
+        waveCtx.stroke();
+    }
+
+    requestAnimationFrame(drawWave);
+}
+
+// Start the animation
+drawWave();
+
+// (The rest of your existing GSAP animations will go here, after the new canvas animation code)
+
+document.addEventListener('DOMContentLoaded', () => {
 
     // Section 1: Entry Experience
     const heroTl = gsap.timeline();

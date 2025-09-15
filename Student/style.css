@@ -403,3 +403,23 @@ h1, h2, h3 {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+
+/* Add to Student/style.css */
+
+#wave-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Remove or modify the existing hero background since the canvas replaces it */
+.hero-section {
+    background: none; /* or rgba(0,0,0,0) */
+}
+
+.background-animation {
+    display: none; /* or remove this element from HTML */
+}
