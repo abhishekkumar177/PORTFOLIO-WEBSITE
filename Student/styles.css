@@ -45,14 +45,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 150vh;
+    height: 200vh;
     text-align: center;
     position: relative;
     z-index: 0;
 }
 
 .hero-avatar img {
-    border-radius: 30%;
+    scale: 0.5;
+    border-radius: 50%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
