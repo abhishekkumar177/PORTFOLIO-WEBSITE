@@ -1,5 +1,5 @@
 // src/components/ScrollStack.jsx
-import React from 'react';
+import React, { useRef, useCallback, useLayoutEffect } from 'react';
 import './Scrollstack.css';
 import Lenis from '@studio-freight/lenis';
 
