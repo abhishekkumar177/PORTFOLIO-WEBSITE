@@ -105,7 +105,7 @@ const Portfolio = () => {
       <section id="entry-experience" className="hero-section">
         <div className="hero-content">
           <ProfileCard image={profileImage} handle="@abhishek.dev" status="Student" />
-          <h1 className="tagline">Hey Student! Glad you swung by.</h1>
+          <h1 filter="invert(1)" style={{ color: 'white' }} className="tagline">Hey Student! Glad you swung by.</h1>
           <h2 className="subtagline">I’m Abhishek, a fellow learner sharing my coding journey.✨ To a Student: Here’s how my portfolio can inspire your learning journey ✨
 
 📚 Learn by Example – Explore real projects that show how ideas transform into solutions.
