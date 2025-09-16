@@ -16,9 +16,9 @@ import art5 from './img/5.jpg';
 import art6 from './img/6.jpg';
 
 // Importing images for the FlowingMenu
-import flowingImg1 from './img/1.png';
-import flowingImg2 from './img/2.png';
-import flowingImg3 from './img/3.png';
+import flowingImg1 from './img/7.png';
+import flowingImg2 from './img/4.png';
+import flowingImg3 from './img/5.png';
 
 import profileImage from './img/Hero.png';
 

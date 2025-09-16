@@ -84,7 +84,7 @@
     height: 100%; /* Ensure image fills height */
     object-fit: cover; /* Cover ensures image fills without distortion */
     border-radius: 15px; /* Slightly rounded image corners */
-    filter: saturate(1.5) brightness(0.9); /* Enhance image slightly */
+    filter: saturate(1.5) brightness(); /* Enhance image slightly */
     transition: transform 0.3s ease;
 }
 
