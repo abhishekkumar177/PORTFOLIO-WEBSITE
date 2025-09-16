@@ -13,7 +13,7 @@ import art4 from './img/4.jpg';
 import art5 from './img/5.jpg';
 import art6 from './img/6.jpg';
 
-import profileImage from './img/Profile.jpg';
+import profileImage from './img/Hero.png';
 
 const initialGalleryItems = [
   {
