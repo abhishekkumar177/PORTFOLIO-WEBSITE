@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useAnimation, useTransform } from 'framer-motion';
 import './RollingGallery.css';
 
-const IMGS = [
-  'https://in.pinterest.com/pin/1068971661597317097/',
-  'https://in.pinterest.com/pin/1068971661597317130/',
-  'https://in.pinterest.com/pin/1068971661597317288/',
-  'https://in.pinterest.com/pin/1068971661597317295/',
-  'https://in.pinterest.com/pin/1068971661597317298/',
-  'https://in.pinterest.com/pin/1068971661597317509/',
-  'https://in.pinterest.com/pin/1068971661597317604/'
-];
+// Import the correct local image paths
+import img1 from '../img/1.png';
+import img2 from '../img/2.png';
+import img3 from '../img/3.png';
+import img4 from '../img/4.png';
+import img5 from '../img/5.png';
+import img6 from '../img/6.png';
+import img7 from '../img/7.png';
+
+const IMGS = [img1, img2, img3, img4, img5, img6, img7];
 
 const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }) => {
   images = IMGS;

@@ -121,8 +121,8 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <h1>Dynamic World</h1>
-      
+      <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Dynamic World</h1>
+
       {/* The interactive Dome Gallery placed in the middle */}
       <div style={{ height: '120vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
         <DomeGallery grayscale={false} />
