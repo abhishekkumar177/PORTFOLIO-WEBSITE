@@ -2,14 +2,13 @@
 
 .pc-card-wrapper {
     position: relative;
-    width: 400px; /* Adjust width as needed */
-    height: 400px; /* Adjust height as needed to maintain aspect ratio or make it squarer */
+    width: 350px; /* Adjust width to be a fixed size for a perfect circle */
+    height: 350px; /* Adjust height to match width */
     perspective: 1000px;
     margin: 0 auto; /* Center the card wrapper */
     display: flex; /* Use flexbox for centering */
     justify-content: center;
     align-items: center;
-    /* Remove any unnecessary transforms or animations from here */
 }
 
 .pc-card {
@@ -17,12 +16,11 @@
     width: 100%;
     height: 100%;
     background: #1a1a1a; /* Dark background for the card */
-    border-radius: 20px; /* Rounded corners for the main card */
+    border-radius: 50%; /* Make the entire card circular */
     overflow: hidden; /* Important to contain internal elements */
     box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow */
     transition: transform 0.3s ease-out; /* Smooth hover effect */
 
-    /* Remove border-image and related properties that might cause glitches */
     border: 2px solid transparent; /* Start with a transparent border */
     background-clip: padding-box; /* Ensure background doesn't go under the border */
 
@@ -48,17 +46,13 @@
 
 
 /* Simplification of shine, glare, and inside elements */
-/* These were heavily contributing to the glitching. */
-/* We will keep a subtle shine if desired, but remove intense animations. */
 .pc-shine, .pc-glare, .pc-inside {
     position: absolute;
-    opacity: 0; /* Hide them by default or simplify */
-    /* Remove complex animations that cause flickering */
+    opacity: 0;
 }
 
 /* You can reintroduce a subtle shine on hover if you like */
 .pc-card:hover .pc-shine {
-    /* For a subtle effect, maybe a radial gradient that appears */
     opacity: 1;
     background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
     width: 100%;
@@ -70,21 +64,21 @@
 
 
 .pc-avatar-content {
-    padding: 15px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%; /* Adjust height to give space for user info */
+    height: 100%; /* Adjust height to give space for user info */
     overflow: hidden;
-    border-radius: 20px 20px 0 0; /* Keep top corners rounded */
+    border-radius: 50%; /* Make this container circular */
 }
 
 .pc-avatar-content .avatar {
-    width: 90%; /* Make image fill more of the available space */
-    height: 100%; /* Ensure image fills height */
-    object-fit: cover; /* Cover ensures image fills without distortion */
-    border-radius: 15px; /* Slightly rounded image corners */
-    filter: saturate(1.5) brightness(); /* Enhance image slightly */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Make the image itself circular */
+    filter: saturate(1.5) brightness(0.9);
     transition: transform 0.3s ease;
 }
 
@@ -94,69 +88,7 @@
 
 
 .pc-user-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for user info */
-    border-radius: 0 0 20px 20px; /* Rounded bottom corners */
-    backdrop-filter: blur(5px); /* Apply blur effect */
-}
-
-.pc-user-details {
-    display: flex;
-    align-items: center;
-}
-
-.pc-mini-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-    border: 2px solid #00c6ff; /* Small border for mini avatar */
-}
-
-.pc-mini-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.pc-user-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.pc-handle {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-.pc-status {
-    color: #aaa;
-    font-size: 0.8em;
-}
-
-.pc-contact-btn {
-    background: linear-gradient(45deg, #00c6ff, #0072ff);
-    border: none;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.pc-contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+    display: none; /* Hide the user info for a fully circular profile picture */
 }
 
 /* Remove any remaining glitch-related keyframe animations */
