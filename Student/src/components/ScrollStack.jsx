@@ -1,10 +1,11 @@
-import { useLayoutEffect, useRef, useCallback } from 'react';
-import Lenis from 'lenis';
-import './ScrollStack.css';
+// src/components/ScrollStack.jsx
+import React from 'react';
+import './Scrollstack.css';
+import Lenis from '@studio-freight/lenis';
 
-export const ScrollStackItem = ({ children, itemClassName = '' }) => (
-  <div className={`scroll-stack-card ${itemClassName}`.trim()}>{children}</div>
-);
+export const ScrollStackItem = (({ children, itemClassName = "" }) => (
+  <div className={`scroll-stack-card ${itemClassName}`} >{children}</div>
+));
 
 const ScrollStack = ({
   children,

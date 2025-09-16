@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
-import RollingGallery from './components/RollingGallery'; // Import the RollingGallery component
+import RollingGallery from './components/RollingGallery';
 import ProfileCard from './components/ProfileCard';
+import { ScrollStackItem } from './components/ScrollStack'; // Import the ScrollStackItem component
 import './index.css';
 import './components/InfoModal.css';
 
@@ -121,8 +122,8 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Dynamic World</h1>
-
+      <h1 style={{ textAlign: 'center' }}>Dynamic World</h1>
+      
       {/* The interactive Dome Gallery placed in the middle */}
       <div style={{ height: '120vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
         <DomeGallery grayscale={false} />
@@ -142,23 +143,26 @@ const Portfolio = () => {
           {galleryItems.length > 0 && <CircularGallery items={galleryItems} onItemClick={handleItemClick} />}
         </div>
 
-        <div className="resources">
-          <h1>Study Resources</h1>
-          <ul>
-            <li><a href="#">GitHub Repos</a></li>
-            <li><a href="#">Notes Blog</a></li>
-            <li><a href="#">Cheat Sheets</a></li>
-          </ul>
-          <div className="resource-video">
-            <iframe
-              src="https://www.youtube.com/embed/resources-overview"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Resources Overview"
-            ></iframe>
-          </div>
-        </div>
+        {/* The Study Resources section wrapped in ScrollStackItem */}
+        <ScrollStackItem>
+            <div className="resources">
+                <h1>Study Resources</h1>
+                <ul>
+                    <li><a href="#">GitHub Repos</a></li>
+                    <li><a href="#">Notes Blog</a></li>
+                    <li><a href="#">Cheat Sheets</a></li>
+                </ul>
+                <div className="resource-video">
+                    <iframe
+                        src="https://www.youtube.com/embed/resources-overview"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title="Resources Overview"
+                    ></iframe>
+                </div>
+            </div>
+        </ScrollStackItem>
       </section>
 
       <section id="call-to-action" className="centered-section">
