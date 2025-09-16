@@ -3,7 +3,7 @@ import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
 import ProfileCard from './components/ProfileCard';
 import './index.css';
-import './components/InfoModal.css'; // Import the InfoModal CSS
+import './components/InfoModal.css';
 
 // Importing images for the new gallery
 import art1 from './img/1.jpg';
@@ -91,82 +91,14 @@ const InfoModal = ({ item, onClose }) => {
 
 const Portfolio = () => {
   const [modalItem, setModalItem] = useState(null);
-  const [galleryItems, setGalleryItems] = useState([]);
-
-  useEffect(() => {
-    const generateTextTextures = async () => {
-      const texturedItems = await Promise.all(
-        initialGalleryItems.map(async (item) => {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          const padding = 20; // Padding around the text
-
-          // Measure text to determine canvas size
-          ctx.font = 'bold 36px Arial';
-          const titleMetrics = ctx.measureText(item.title);
-          let maxWidth = titleMetrics.width;
-
-          ctx.font = '24px Arial';
-          const descriptionMetrics = ctx.measureText(item.description);
-          maxWidth = Math.max(maxWidth, descriptionMetrics.width);
-
-          ctx.font = '20px Arial';
-          const tagsText = item.tags ? item.tags.join('   ') : '';
-          const tagsMetrics = ctx.measureText(tagsText);
-          maxWidth = Math.max(maxWidth, tagsMetrics.width);
-
-          // Set canvas dimensions
-          canvas.width = maxWidth + padding * 2;
-          canvas.height = 180; // Fixed height to ensure enough space for text
-
-          // Apply background gradient
-          const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-          gradient.addColorStop(0, 'rgba(0, 0, 0, 0.7)');
-          gradient.addColorStop(1, 'rgba(0, 0, 0, 0.3)');
-          ctx.fillStyle = gradient;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-          // Add border to the canvas (optional, matching card border)
-          ctx.strokeStyle = 'rgba(0, 114, 255, 0.8)'; // Blueish border
-          ctx.lineWidth = 4;
-          ctx.strokeRect(0, 0, canvas.width, canvas.height);
-
-
-          ctx.fillStyle = '#FFFFFF'; // White text
-          ctx.textAlign = 'left';
-
-          let yPos = padding + 36; // Initial Y position for title
-
-          // Draw Title
-          ctx.font = 'bold 36px Arial';
-          ctx.fillText(item.title, padding, yPos);
-          yPos += 30; // Line height for title
-
-          // Draw Description
-          ctx.font = '24px Arial';
-          ctx.fillText(item.description, padding, yPos);
-          yPos += 30; // Line height for description
-
-          // Draw Tags
-          if (item.tags && item.tags.length > 0) {
-            ctx.font = '20px Arial';
-            ctx.fillStyle = '#BBBBBB'; // Slightly lighter color for tags
-            ctx.fillText(tagsText, padding, yPos);
-          }
-
-          return { ...item, textCanvas: canvas };
-        })
-      );
-      setGalleryItems(texturedItems);
-    };
-
-    generateTextTextures();
-  }, []); // Run once on component mount
+  
+  // The gallery items are now passed directly without the useEffect hook
+  const galleryItems = initialGalleryItems;
 
   const handleItemClick = (item) => {
     setModalItem(item);
   };
-
+  
   return (
     <>
       {/* Header and hero content */}
@@ -240,6 +172,7 @@ const Portfolio = () => {
       <section id="student-features" className="carousel-section">
         <h1>Projects</h1>
         <div style={{ height: '100vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
+          {/* Pass the correct item data and the click handler */}
           {galleryItems.length > 0 && <CircularGallery items={galleryItems} onItemClick={handleItemClick} />}
         </div>
 
