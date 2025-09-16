@@ -9,7 +9,7 @@
   position: absolute;
   top: 0;
   height: 100%;
-  width: 48px;
+  width: 0px;
   z-index: 10;
 }
 
@@ -49,14 +49,16 @@
   height: fit-content;
   align-items: center;
   justify-content: center;
-  padding: 8%;
+  /* Increased padding to prevent overlap */
+  padding: 12%;
   backface-visibility: hidden;
 }
 
 .gallery-img {
   pointer-events: none;
-  height: 120px;
-  width: 300px;
+  /* Increased image dimensions for better visibility */
+  height: 200px; 
+  width: 550px; 
   border-radius: 15px;
   border: 3px solid #fff;
   object-fit: cover;
@@ -70,10 +72,12 @@
 
 @media (max-width: 768px) {
   .gallery-item {
-    padding: 6%;
+    /* Adjusted padding for mobile */
+    padding: 8%;
   }
   .gallery-img {
-    height: 100px;
-    width: 220px;
+    /* Adjusted image dimensions for mobile */
+    height: 150px;
+    width: 250px;
   }
 }

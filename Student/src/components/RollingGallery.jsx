@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useAnimation, useTransform } from 'motion/react';
+import { motion, useMotionValue, useAnimation, useTransform } from 'framer-motion';
 import './RollingGallery.css';
 
 const IMGS = [
@@ -21,7 +21,8 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
 
   const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
   const faceCount = images.length;
-  const faceWidth = (cylinderWidth / faceCount) * 1.5;
+  // Increase this value (e.g., from 1.5 to 1.8 or 2.0) to increase spacing between images
+  const faceWidth = (cylinderWidth / faceCount) * 1.8;
   const dragFactor = 0.05;
   const radius = cylinderWidth / (2 * Math.PI);
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
+import RollingGallery from './components/RollingGallery'; // Import the RollingGallery component
 import ProfileCard from './components/ProfileCard';
 import './index.css';
 import './components/InfoModal.css';
@@ -128,45 +129,10 @@ const Portfolio = () => {
         <DomeGallery grayscale={false} />
       </div>
 
-      {/* Content below the Dome Gallery */}
-      <section id="dialogue-bubbles" className="grid-section">
-        <h1>Works & Experience :</h1>
-        <div className="dialogue-bubble">
-          <p>Looking for inspiration in projects?</p>
-          <div className="video-container-small">
-            <iframe
-              src="https://www.youtube.com/embed/project-inspiration"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Project Inspiration"
-            ></iframe>
-          </div>
-        </div>
-        <div className="dialogue-bubble">
-          <p>I share my journey, notes, and real-world projects.</p>
-          <div className="video-container-small">
-            <iframe
-              src="https://www.youtube.com/embed/student-journey"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Student Journey"
-            ></iframe>
-          </div>
-        </div>
-        <div className="dialogue-bubble">
-          <p>From coding basics to advanced AI — find something useful here.</p>
-          <div className="video-container-small">
-            <iframe
-              src="https://www.youtube.com/embed/ai-basics"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="AI Basics"
-            ></iframe>
-          </div>
-        </div>
+      {/* Replaced the old section with the Rolling Gallery */}
+      <section id="works-experience-section" className="rolling-gallery-section">
+        <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Works & Experience :</h1>
+        <RollingGallery />
       </section>
 
       {/* The Projects section with CircularGallery */}
