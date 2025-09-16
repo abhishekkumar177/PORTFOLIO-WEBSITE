@@ -3,7 +3,7 @@ import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
 import RollingGallery from './components/RollingGallery';
 import ProfileCard from './components/ProfileCard';
-import { ScrollStackItem } from './components/ScrollStack'; // Import the ScrollStackItem component
+import ScrollStack, { ScrollStackItem } from './components/ScrollStack'; // Import the main ScrollStack component
 import './index.css';
 import './components/InfoModal.css';
 
@@ -142,27 +142,63 @@ const Portfolio = () => {
           {/* Pass the correct item data and the click handler */}
           {galleryItems.length > 0 && <CircularGallery items={galleryItems} onItemClick={handleItemClick} />}
         </div>
-
-        {/* The Study Resources section wrapped in ScrollStackItem */}
-        <ScrollStackItem>
+        
+        {/* The Study Resources section with a new ScrollStack */}
+        <ScrollStack>
+          <ScrollStackItem className="github-card">
             <div className="resources">
-                <h1>Study Resources</h1>
-                <ul>
-                    <li><a href="#">GitHub Repos</a></li>
-                    <li><a href="#">Notes Blog</a></li>
-                    <li><a href="#">Cheat Sheets</a></li>
-                </ul>
-                <div className="resource-video">
-                    <iframe
-                        src="https://www.youtube.com/embed/resources-overview"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title="Resources Overview"
-                    ></iframe>
-                </div>
+              <h1>Study Resources</h1>
+              <ul>
+                <li><a href="#">GitHub Repos</a></li>
+              </ul>
+              <div className="resource-video">
+                <iframe
+                    src="https://www.youtube.com/embed/resources-overview"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Resources Overview"
+                ></iframe>
+              </div>
             </div>
-        </ScrollStackItem>
+          </ScrollStackItem>
+
+          <ScrollStackItem className="notes-card">
+            <div className="resources">
+              <h1>Study Resources</h1>
+              <ul>
+                <li><a href="#">Notes Blog</a></li>
+              </ul>
+              <div className="resource-video">
+                <iframe
+                    src="https://www.youtube.com/embed/resources-overview"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Resources Overview"
+                ></iframe>
+              </div>
+            </div>
+          </ScrollStackItem>
+          
+          <ScrollStackItem className="cheat-sheets-card">
+            <div className="resources">
+              <h1>Study Resources</h1>
+              <ul>
+                <li><a href="#">Cheat Sheets</a></li>
+              </ul>
+              <div className="resource-video">
+                <iframe
+                    src="https://www.youtube.com/embed/resources-overview"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Resources Overview"
+                ></iframe>
+              </div>
+            </div>
+          </ScrollStackItem>
+        </ScrollStack>
       </section>
 
       <section id="call-to-action" className="centered-section">
