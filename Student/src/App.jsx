@@ -3,7 +3,7 @@ import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
 import RollingGallery from './components/RollingGallery';
 import ProfileCard from './components/ProfileCard';
-import ScrollStack, { ScrollStackItem } from './components/ScrollStack'; // Import the main ScrollStack component
+import ScrollStack, { ScrollStackItem } from './components/FlowingMenu'; // Import the main ScrollStack component
 import './index.css';
 import './components/InfoModal.css';
 
