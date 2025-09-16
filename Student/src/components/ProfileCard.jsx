@@ -100,7 +100,7 @@ const Portfolio = () => {
 
       {/* The original carousel-section is replaced with the CircularGallery */}
       <section id="student-features" className="carousel-section">
-        <h1>Projects</h1>
+        <h2>Projects</h2>
         <div style={{ height: '100vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
           <CircularGallery items={galleryItems} textColor="#fff" />
         </div>
