@@ -46,11 +46,19 @@ gsap.from(".dialogue-bubble", {
 });
 
 // Student-Centric Features Animation (Carousel)
-gsap.from(".carousel-item", {
+gsap.set(".carousel-item", {
     opacity: 0,
-    x: -50,
+    y: 100,
+    rotation: 10,
+    transformOrigin: "center bottom"
+});
+
+gsap.to(".carousel-item", {
+    opacity: 1,
+    y: 0,
+    rotation: 0,
     stagger: 0.2,
-    duration: 1,
+    duration: 1.2,
     ease: "power3.out",
     scrollTrigger: {
         trigger: ".carousel-container",

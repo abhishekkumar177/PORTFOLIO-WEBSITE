@@ -21,7 +21,7 @@ const Portfolio = () => {
       </section>
 
       {/* The interactive Dome Gallery placed in the middle */}
-      <div style={{ height: '70vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
+      <div style={{ height: '120vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
         <DomeGallery grayscale={false} />
       </div>
 
@@ -191,7 +191,7 @@ export default function App() {
       </div>
 
       {/* Main portfolio content layer */}
-      <div id="portfolio-container" style={{ position: 'relative', zIndex: 1, backgroundColor: 'rgba(6, 0, 16, 0.7)' }}>
+      <div id="portfolio-container" style={{ position: 'relative', zIndex: 1}}>
         <Portfolio />
       </div>
     </>
