@@ -118,12 +118,11 @@ const Portfolio = () => {
 🌐 Community & Collaboration – Discover how sharing knowledge helps everyone grow.
 
 🎯 Practical Guidance – Gain insights into skills, resources, and strategies for your journey.</h2>
-          <div className="hero-video">
-            <video src="./vid/Hero.mp4" autoPlay loop muted></video>
-          </div>
         </div>
       </section>
 
+      <h1>Dynamic World</h1>
+      
       {/* The interactive Dome Gallery placed in the middle */}
       <div style={{ height: '120vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
         <DomeGallery grayscale={false} />

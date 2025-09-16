@@ -10,7 +10,8 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  perspective: 1000px;
+  /* Added perspective to create a more dramatic 3D effect */
+  perspective: 1500px;
   transform-style: preserve-3d;
 }
 
@@ -40,8 +41,8 @@
 .gallery-img {
   pointer-events: none;
   /* Increased image dimensions for better visibility */
-  height: 200px; 
-  width: 190px; 
+  height: 150px; 
+  width: 220px; 
   border-radius: 15px;
   border: 3px solid #fff;
   object-fit: cover;
@@ -63,5 +64,9 @@
     /* Adjusted image dimensions for mobile */
     height: 150px;
     width: 250px;
+  }
+  /* Adjusted perspective for smaller screens to prevent distortion */
+  .gallery-content {
+    perspective: 1000px;
   }
 }
