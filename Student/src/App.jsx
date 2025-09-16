@@ -3,7 +3,7 @@ import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
 import RollingGallery from './components/RollingGallery';
 import ProfileCard from './components/ProfileCard';
-import ScrollStack, { ScrollStackItem } from './components/FlowingMenu'; // Import the main ScrollStack component
+import FlowingMenu from './components/FlowingMenu'; // Correct import for FlowingMenu
 import './index.css';
 import './components/InfoModal.css';
 
@@ -15,7 +15,31 @@ import art4 from './img/4.jpg';
 import art5 from './img/5.jpg';
 import art6 from './img/6.jpg';
 
+// Importing images for the FlowingMenu
+import flowingImg1 from './img/1.png';
+import flowingImg2 from './img/2.png';
+import flowingImg3 from './img/3.png';
+
 import profileImage from './img/Hero.png';
+
+// Data for the FlowingMenu component
+const flowingMenuItems = [
+    {
+        link: "#",
+        text: "GitHub Repos",
+        image: flowingImg1
+    },
+    {
+        link: "#",
+        text: "Notes Blog",
+        image: flowingImg2
+    },
+    {
+        link: "#",
+        text: "Cheat Sheets",
+        image: flowingImg3
+    }
+];
 
 const initialGalleryItems = [
   {
@@ -143,75 +167,19 @@ const Portfolio = () => {
           {galleryItems.length > 0 && <CircularGallery items={galleryItems} onItemClick={handleItemClick} />}
         </div>
         
-        {/* The Study Resources section with a new ScrollStack */}
-        <ScrollStack>
-          <ScrollStackItem className="github-card">
-            <div className="resources">
-              <h1>Study Resources</h1>
-              <ul>
-                <li><a href="#">GitHub Repos</a></li>
-              </ul>
-              <div className="resource-video">
-                <iframe
-                    src="https://www.youtube.com/embed/resources-overview"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Resources Overview"
-                ></iframe>
-              </div>
-            </div>
-          </ScrollStackItem>
-
-          <ScrollStackItem className="notes-card">
-            <div className="resources">
-              <h1>Study Resources</h1>
-              <ul>
-                <li><a href="#">Notes Blog</a></li>
-              </ul>
-              <div className="resource-video">
-                <iframe
-                    src="https://www.youtube.com/embed/resources-overview"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Resources Overview"
-                ></iframe>
-              </div>
-            </div>
-          </ScrollStackItem>
-          
-          <ScrollStackItem className="cheat-sheets-card">
-            <div className="resources">
-              <h1>Study Resources</h1>
-              <ul>
-                <li><a href="#">Cheat Sheets</a></li>
-              </ul>
-              <div className="resource-video">
-                <iframe
-                    src="https://www.youtube.com/embed/resources-overview"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Resources Overview"
-                ></iframe>
-              </div>
-            </div>
-          </ScrollStackItem>
-        </ScrollStack>
+        {/* The Study Resources section with FlowingMenu */}
+        <section className="flowing-menu-section">
+          <h1 style={{ textAlign: 'center', margin: '40px 0 20px' }}>Study Resources</h1>
+          <div style={{ height: '50vh' }}>
+            <FlowingMenu items={flowingMenuItems} />
+          </div>
+        </section>
       </section>
 
       <section id="call-to-action" className="centered-section">
         <h2 className="cta-text">Want to learn together? Let’s connect and grow.</h2>
         <a href="#" id="cta-button" className="cta-button">Join Study Circle</a>
         <div className="cta-video">
-          <iframe
-            src="https://www.youtube.com/embed/call-to-action-intro"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Call to Action Intro"
-          ></iframe>
         </div>
       </section>
 
@@ -223,13 +191,6 @@ const Portfolio = () => {
           <span className="icon">💡</span>
         </div>
         <div className="footer-video">
-          <iframe
-            src="https://www.youtube.com/embed/final-message"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Final Message"
-          ></iframe>
         </div>
       </footer>
       <InfoModal item={modalItem} onClose={() => setModalItem(null)} />
