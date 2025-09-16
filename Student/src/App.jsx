@@ -130,6 +130,7 @@ const Portfolio = () => {
 
       {/* Content below the Dome Gallery */}
       <section id="dialogue-bubbles" className="grid-section">
+        <h1>Works & Experience :</h1>
         <div className="dialogue-bubble">
           <p>Looking for inspiration in projects?</p>
           <div className="video-container-small">

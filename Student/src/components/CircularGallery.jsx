@@ -25,23 +25,23 @@ function autoBind(instance) {
 }
 
 // Updated to handle multiple lines of text (title and description)
-function createTextTexture(gl, title, description, tags, font = 'bold 30px monospace', color = 'black') {
+function createTextTexture(gl, title, description, tags, font = 'bold 50px monospace', color = 'black') {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
 
   // Set font and measure text to determine canvas size
-  context.font = 'bold 36px sans-serif';
+  context.font = 'bold 50px sans-serif';
   const titleMetrics = context.measureText(title);
   
-  context.font = '24px sans-serif';
+  context.font = '36px sans-serif';
   const descriptionMetrics = context.measureText(description);
 
-  context.font = '20px sans-serif';
+  context.font = '30px sans-serif';
   const tagsText = tags ? tags.join(' | ') : '';
   const tagsMetrics = context.measureText(tagsText);
 
   const maxWidth = Math.max(titleMetrics.width, descriptionMetrics.width, tagsMetrics.width);
-  canvas.width = maxWidth + 40; // Add padding
+  canvas.width = maxWidth + 120; // Add padding
   canvas.height = 180; // Fixed height for consistent text box size
 
   // Draw background gradient
@@ -53,7 +53,7 @@ function createTextTexture(gl, title, description, tags, font = 'bold 30px monos
 
   // Draw border (optional)
   context.strokeStyle = 'rgba(0, 114, 255, 0.8)';
-  context.lineWidth = 4;
+  context.lineWidth = 8;
   context.strokeRect(0, 0, canvas.width, canvas.height);
 
   context.fillStyle = '#FFFFFF';
@@ -62,18 +62,18 @@ function createTextTexture(gl, title, description, tags, font = 'bold 30px monos
   let yPos = 40;
   
   // Draw Title
-  context.font = 'bold 36px sans-serif';
+  context.font = 'bold 50px sans-serif';
   context.fillText(title, canvas.width / 2, yPos);
   yPos += 30;
 
   // Draw Description
-  context.font = '24px sans-serif';
+  context.font = '36px sans-serif';
   context.fillText(description, canvas.width / 2, yPos);
   yPos += 30;
   
   // Draw Tags
   if (tags && tags.length > 0) {
-    context.font = '20px sans-serif';
+    context.font = '30px sans-serif';
     context.fillStyle = '#BBBBBB';
     context.fillText(tagsText, canvas.width / 2, yPos);
   }
