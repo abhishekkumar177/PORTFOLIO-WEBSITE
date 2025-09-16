@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Student Persona</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./src/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
@@ -12,19 +14,19 @@
 <body>
     <div class="video-container">
         <video autoplay muted loop id="myVideo">
-            <source src="Background.mp4" type="video/mp4">
+            <source src="./src/vid/Background.mp4" type="video/mp4">
         </video>
     </div>
-    
+    <div id="root"></div>
     <section id="entry-experience" class="hero-section">
         <div class="hero-content">
             <div class="hero-avatar">
-                <img src="Profile.jpg" alt="Student Avatar">
+                <img src="./src/img/Profile.jpg" alt="Student Avatar">
             </div>
             <h1 class="tagline">Hey Student! Glad you swung by.</h1>
             <p class="subline">Here’s how my portfolio can inspire your learning journey.</p>
             <div class="hero-video">
-                <video src="Hero.mp4" autoplay loop muted></video>
+                <video src=".Hero.mp4" autoplay loop muted></video>
             </div>
         </div>
     </section>
@@ -135,6 +137,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="./src/main.jsx"></script>
+    <script src="./src/script.js"></script>
 </body>
 </html>
