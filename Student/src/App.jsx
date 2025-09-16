@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DomeGallery from './components/DomeGallery';
 import CircularGallery from './components/CircularGallery';
+import ProfileCard from './components/ProfileCard';
 import './index.css';
 
 // Importing images for the new gallery
@@ -11,43 +12,81 @@ import art4 from './img/4.jpg';
 import art5 from './img/5.jpg';
 import art6 from './img/6.jpg';
 
+import profileImage from './img/Profile.jpg';
+
 const galleryItems = [
   {
     image: art1,
-    text: "Forest Fire Detection\nProject Link"
+    title: "Forest Fire Detection",
+    description: "AI + Satellite Data system",
+    link: "https://www.youtube.com/embed/forest-fire-demo"
   },
   {
     image: art2,
-    text: "Database Design Basics\nProject Link"
+    title: "Database Design Basics",
+    description: "SQL + ER modeling explained",
+    link: "https://www.youtube.com/embed/sql-basics"
   },
   {
     image: art3,
-    text: "AI RAG Chatbot\nProject Link"
+    title: "AI RAG Chatbot",
+    description: "Context-aware chatbot project",
+    link: "https://www.youtube.com/embed/rag-chatbot-demo"
   },
   {
     image: art4,
-    text: "Leaping into Action\nProject Link"
+    title: "Project Alpha",
+    description: "A fun personal project.",
+    link: "https://www.youtube.com/embed/project-alpha-demo"
   },
   {
     image: art5,
-    text: "Into the Spider-Verse\nProject Link"
+    title: "Project Beta",
+    description: "A showcase of a new technology.",
+    link: "https://www.youtube.com/embed/project-beta-demo"
   },
   {
     image: art6,
-    text: "A Colorful World\nProject Link"
+    title: "Project Gamma",
+    description: "A colorful world.",
+    link: "https://www.youtube.com/embed/project-gamma-demo"
   }
 ];
 
-// This component contains all the portfolio content from the HTML file
+const InfoModal = ({ item, onClose }) => {
+  if (!item) return null;
+  return (
+    <div className="info-modal-overlay">
+      <div className="info-modal-content">
+        <button className="info-modal-close" onClick={onClose}>&times;</button>
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+        <div className="info-modal-video">
+          <iframe
+            src={item.link}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
+  const [modalItem, setModalItem] = useState(null);
+
+  const handleItemClick = (item) => {
+    setModalItem(item);
+  };
+
   return (
     <>
       {/* Header and hero content */}
       <section id="entry-experience" className="hero-section">
         <div className="hero-content">
-          <div className="hero-avatar">
-            <img src="./src/img/Profile.jpg" alt="Student Avatar" />
-          </div>
+          <ProfileCard image={profileImage} handle="@abhishek.dev" status="Student" />
           <h1 className="tagline">Hey Student! Glad you swung by.</h1>
           <p className="subline">Here’s how my portfolio can inspire your learning journey.</p>
           <div className="hero-video">
@@ -100,9 +139,9 @@ const Portfolio = () => {
 
       {/* The original carousel-section is replaced with the CircularGallery */}
       <section id="student-features" className="carousel-section">
-        <h1>Projects</h1>
+        <h2>Projects</h2>
         <div style={{ height: '100vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
-          <CircularGallery items={galleryItems} textColor="#fff" />
+          <CircularGallery items={galleryItems} onItemClick={handleItemClick} />
         </div>
 
         <div className="resources">
@@ -152,6 +191,7 @@ const Portfolio = () => {
           ></iframe>
         </div>
       </footer>
+      <InfoModal item={modalItem} onClose={() => setModalItem(null)} />
     </>
   );
 };
