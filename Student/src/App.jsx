@@ -122,7 +122,13 @@ const Portfolio = () => {
   const galleryItems = initialGalleryItems;
 
   const handleItemClick = (item) => {
-    setModalItem(item);
+    // Check if the link is a YouTube embed URL
+    if (item.link && item.link.includes("youtube.com/embed")) {
+      setModalItem(item); // Open modal for video links
+    } else {
+      // For all other links (like GitHub), open in a new tab
+      window.open(item.link, '_blank', 'noopener,noreferrer');
+    }
   };
   
   return (
