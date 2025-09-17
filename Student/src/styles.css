@@ -219,3 +219,17 @@ body {
     font-size: 2em;
     margin: 0 10px;
 }
+
+/* New spooky text style */
+/*
+.spooky-text {
+    filter: invert(1);
+    text-shadow: 0 0 10px rgba(128, 0, 128, 0.8), 0 0 20px rgba(128, 0, 128, 0.6);
+}
+ */
+/* Style for a spooky, high-contrast text effect */
+.spooky-text {
+  filter: invert(1);
+  text-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000;
+  color: white; /* The filter will invert this to black */
+}

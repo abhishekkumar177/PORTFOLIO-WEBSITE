@@ -47,7 +47,7 @@ const initialGalleryItems = [
     title: "Forest Fire Detection",
     description: "AI + Satellite Data system",
     tags: ["Python", "TensorFlow", "Keras"],
-    link: "https://www.youtube.com/embed/forest-fire-demo"
+    link: "https://github.com/abhishekkumar177/Week_1"
   },
   {
     image: art2,
@@ -75,7 +75,7 @@ const initialGalleryItems = [
     title: "Web Development",
     description: "Building responsive websites",
     tags: ["React", "Node.js", "CSS"],
-    link: "https://www.youtube.com/embed/web-dev-demo"
+    link: "https://github.com/abhishekkumar177/PORTFOLIO-WEBSITE"
   },
   {
     image: art6,
@@ -131,8 +131,8 @@ const Portfolio = () => {
       <section id="entry-experience" className="hero-section">
         <div className="hero-content">
           <ProfileCard image={profileImage} handle="@abhishek.dev" status="Student" />
-          <h1 filter="invert(1)" style={{ color: 'white' }} className="tagline">Hey Student! Glad you swung by.</h1>
-          <h2 className="subtagline">I’m Abhishek, a fellow learner sharing my coding journey.✨ To a Student: Here’s how my portfolio can inspire your learning journey ✨
+          <h1 style={{ color: 'white' }} className="tagline spooky-text">Hey Student! Glad you swung by.</h1>
+          <h2 className="subtagline spooky-text">I’m Abhishek, a fellow learner sharing my coding journey.✨ To a Student: Here’s how my portfolio can inspire your learning journey ✨
 
 📚 Learn by Example – Explore real projects that show how ideas transform into solutions.
 
@@ -146,7 +146,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <h1 style={{ textAlign: 'center' }}>Dynamic World</h1>
+      <h1 className="spooky-text" style={{ textAlign: 'center' }}>Dynamic World</h1>
       
       {/* The interactive Dome Gallery placed in the middle */}
       <div style={{ height: '120vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
@@ -155,13 +155,13 @@ const Portfolio = () => {
 
       {/* Replaced the old section with the Rolling Gallery */}
       <section id="works-experience-section" className="rolling-gallery-section">
-        <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Works & Experience :</h1>
+        <h1 className="spooky-text" style={{ textAlign: 'center', marginBottom: '40px' }}>Works & Experience :</h1>
         <RollingGallery />
       </section>
 
       {/* The Projects section with CircularGallery */}
       <section id="student-features" className="carousel-section">
-        <h1>Projects</h1>
+        <h1 className="spooky-text">Projects</h1>
         <div style={{ height: '100vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
           {/* Pass the correct item data and the click handler */}
           {galleryItems.length > 0 && <CircularGallery items={galleryItems} onItemClick={handleItemClick} />}
@@ -169,7 +169,7 @@ const Portfolio = () => {
         
         {/* The Study Resources section with FlowingMenu */}
         <section className="flowing-menu-section">
-          <h1 style={{ textAlign: 'center', margin: '40px 0 20px' }}>Study Resources</h1>
+          <h1 className="spooky-text" style={{ textAlign: 'center', margin: '40px 0 20px' }}>Study Resources</h1>
           <div style={{ height: '50vh' }}>
             <FlowingMenu items={flowingMenuItems} />
           </div>

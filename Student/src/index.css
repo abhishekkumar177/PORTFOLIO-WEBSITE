@@ -1,16 +1,24 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Benton Sans Extra Comp Black", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: hsl(0, 0%, 14%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Benton Sans Extra Comp Black';
+  src: url('./fonts/BentonSansExtraCompBlack.woff2') format('woff2'),
+       url('./fonts/BentonSansExtraCompBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
 }
 
 a {
