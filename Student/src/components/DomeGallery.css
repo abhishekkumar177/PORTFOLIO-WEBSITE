@@ -56,17 +56,7 @@ main.sphere-main {
   z-index: 3;
   pointer-events: none;
 }
-/*
-.overlay {
-  background-image: radial-gradient(rgba(235, 235, 235, 0) 65%, var(--overlay-blur-color, #060010) 100%);
-}
 
-.overaly--blur {
-  -webkit-mask-image: radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, #060010) 90%);
-  mask-image: radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, #060010) 90%);
-  backdrop-filter: blur(3px);
-}
-*/
 .item {
   width: calc(var(--item-width) * var(--item-size-x));
   height: calc(var(--item-height) * var(--item-size-y));
@@ -96,7 +86,11 @@ main.sphere-main {
   touch-action: manipulation;
   pointer-events: auto;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  transform: 
+  rotateY(calc(var(--lon) * 1deg)) 
+  rotateX(calc(var(--lat) * 1deg)) 
+  translateZ(var(--radius));
+
 }
 
 .item__image:focus {

@@ -49,8 +49,8 @@ const DEFAULT_IMAGES = [  {
 ];
 
 const DEFAULTS = {
-  maxVerticalRotationDeg: 5,
-  dragSensitivity: 20,
+  maxVerticalRotationDeg: 30,
+  dragSensitivity: 15,
   enlargeTransitionMs: 300,
   segments: 35
 };
@@ -120,8 +120,8 @@ function buildItems(pool, seg) {
 
 function computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, segments) {
   const unit = 360 / segments / 2;
-  const rotateY = unit * (offsetX + (sizeX - 1) / 4);
-  const rotateX = unit * (offsetY - (sizeY - 1) / 4);
+  const rotateY = unit * (offsetX + (sizeX - 1) / 8);
+  const rotateX = unit * (offsetY - (sizeY - 1) / 8);
   return { rotateX, rotateY };
 }
 
