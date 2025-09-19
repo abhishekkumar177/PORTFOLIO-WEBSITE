@@ -118,8 +118,8 @@ function buildItems(pool, seg) {
 
 function computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, segments) {
   const unit = 360 / segments / 2;
-  const rotateY = unit * (offsetX + (sizeX - 1) / 2);
-  const rotateX = unit * (offsetY - (sizeY - 1) / 2);
+  const rotateY = unit * (offsetX + (sizeX - 1) / 4);
+  const rotateX = unit * (offsetY - (sizeY - 1) / 4);
   return { rotateX, rotateY };
 }
 
@@ -127,7 +127,7 @@ export default function DomeGallery({
   images = DEFAULT_IMAGES,
   fit = 0.5,
   fitBasis = 'auto',
-  minRadius = 600,
+  minRadius = 700,
   maxRadius = Infinity,
   padFactor = 0.25,
   overlayBlurColor = '#060010',
