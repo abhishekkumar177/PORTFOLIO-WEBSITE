@@ -79,21 +79,13 @@ main.sphere-main {
   transform-origin: 50% 50%;
   backface-visibility: hidden;
   transition: transform 300ms;
-  transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg)))
-    rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg)))
-    translateZ(var(--radius));
+  
 }
-
-/* DomeGallery.css */
 
 .item__image {
   position: absolute;
   display: block;
-  /* Removed inset to remove spacing */
-  top: 0; 
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 10px;
   border-radius: var(--tile-radius, 12px);
   background: transparent;
   overflow: hidden;
