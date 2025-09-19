@@ -68,9 +68,11 @@ const getDataNumber = (el, name, fallback) => {
 };
 
 function buildItems(pool, seg) {
-  const xCols = Array.from({ length: seg }, (_, i) => -37 + i * 2);
-  const evenYs = [-4, -2, 0, 2, 4];
-  const oddYs = [-3, -1, 1, 3, 5];
+  const xCols = Array.from({ length: seg }, (_, i) => (i * 2));
+  
+  // Expanded vertical coordinates to fill the entire dome top-to-bottom
+  const evenYs = [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]; 
+  const oddYs = [-9, -7, -5, -3, -1, 1, 3, 5, 7, 9, 11];
 
   const coords = xCols.flatMap((x, c) => {
     const ys = c % 2 === 0 ? evenYs : oddYs;
@@ -125,7 +127,7 @@ function computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, segments) {
 
 export default function DomeGallery({
   images = DEFAULT_IMAGES,
-  fit = 0.5,
+  fit = 0.55,
   fitBasis = 'auto',
   minRadius = 700,
   maxRadius = Infinity,
@@ -626,6 +628,10 @@ export default function DomeGallery({
                   ['--offset-y']: it.y,
                   ['--item-size-x']: it.sizeX,
                   ['--item-size-y']: it.sizeY
+                  //New Transform moved to CSS for better performance
+                  transform: `rotateY(calc(var(--rot-y) * (var(--offset-x)) + var(--rot-y-delta, 0deg)))
+                            rotateX(calc(var(--rot-x) * (var(--offset-y)) + var(--rot-x-delta, 0deg)))
+                            translateZ(var(--radius))`
                 }}
               >
                 <div

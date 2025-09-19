@@ -153,10 +153,10 @@ const Portfolio = () => {
       </section>
 
       <h1 className="spooky-text" style={{ textAlign: 'center' }}>Dynamic World</h1>
-      
-      {/* The interactive Dome Gallery placed in the middle */}
+
+      {/* After */}
       <div style={{ height: '120vh', width: '100%', padding: '20px 0', overflow: 'hidden' }}>
-        <DomeGallery grayscale={false} />
+        <DomeGallery grayscale={false} maxVerticalRotationDeg={90} />
       </div>
 
       {/* Replaced the old section with the Rolling Gallery */}

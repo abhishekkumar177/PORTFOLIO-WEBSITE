@@ -84,10 +84,16 @@ main.sphere-main {
     translateZ(var(--radius));
 }
 
+/* DomeGallery.css */
+
 .item__image {
   position: absolute;
   display: block;
-  inset: 10px;
+  /* Removed inset to remove spacing */
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
   border-radius: var(--tile-radius, 12px);
   background: transparent;
   overflow: hidden;
