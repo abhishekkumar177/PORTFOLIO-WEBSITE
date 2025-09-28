@@ -1,0 +1,24 @@
+/* App.css (or index.css in a typical React setup with Tailwind) */
+
+/* Import Tailwind's base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NOTE: 
+  The provided React component uses Tailwind CSS entirely. 
+  There are no custom, non-Tailwind CSS classes (e.g., .my-custom-class) 
+  to extract from the original code. 
+
+  The custom text clipping (bg-clip-text) is handled by a Tailwind plugin 
+  or configured in the tailwind.config.js file, but can be added here if 
+  not using the plugin and need browser compatibility for text-shadow on dark mode, 
+  but Tailwind itself handles the class: text-transparent bg-clip-text.
+  
+  The one exception that might need base styling is the scroll behavior:
+*/
+
+/* Optional: Smooth scroll for section links (like #about, #skills) */
+html {
+  scroll-behavior: smooth;
+}

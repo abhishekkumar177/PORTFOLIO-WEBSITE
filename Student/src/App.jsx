@@ -20,7 +20,7 @@ import flowingImg1 from './img/7.png';
 import flowingImg2 from './img/4.png';
 import flowingImg3 from './img/5.png';
 
-import profileImage from './img/Hero.png';
+import profileImage from './img/Abhishek.png';
 
 // Data for the FlowingMenu component
 const flowingMenuItems = [
